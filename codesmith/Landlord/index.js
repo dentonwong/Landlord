@@ -20,15 +20,16 @@ const myForm = document.getElementById("myForm");
 const csvFile = document.getElementById("csvFile");
 
 myForm.addEventListener("submit", function (e) {
-e.preventDefault();
-const input = csvFile.files[0];
-const reader = new FileReader();
+    e.preventDefault();
+    const input = csvFile.files[0];
+    const reader = new FileReader();
 
-reader.onload = function (e) {
-    const text = e.target.result;
-    const data = d3.csvParse(text);
-    document.write(JSON.stringify(data));
-};
+    reader.onload = function (e) {
+        const text = e.target.result;
+        const data = d3.csvParse(text);
+        
+        document.write(JSON.stringify(data));
+    };
 
-reader.readAsText(input);
+    reader.readAsText(input);
 });
