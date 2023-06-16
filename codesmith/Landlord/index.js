@@ -3,12 +3,13 @@ const fs = require('fs')
 const results = [];
 
 fs.createReadStream('transactions.csv')
-  .pipe(csv())
+  .pipe(csv({mapHeaders: ({ header, index }) => header.toLowerCase()}))
   .on('data', (data) => results.push(data))
   .on('end', () => {
+
+
     console.log(results);
-    // [
-    //   { NAME: 'Daffy Duck', AGE: '24' },
-    //   { NAME: 'Bugs Bunny', AGE: '22' }
-    // ]
+
   });
+document.write("test");
+alert("This alert box was called with the onload event");
