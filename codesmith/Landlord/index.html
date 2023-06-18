@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
+    <title>Parcel Sandbox</title>
     <meta charset="UTF-8" />
-    <title>Test</title>
-    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
-    
-</head>
-<body>
-    <form id="myForm">
-        <input type="file" id="csvFile" accept=".csv" />
-        <br />
-        <input type="submit" value="Submit" />
+    <link rel="stylesheet" href="styles.css">
+  </head>
+
+  <body>
+    <form id="csvForm">
+      <input type="file" id="csvInput" accept=".csv" />
+      <input type="submit" value="Submit" />
     </form>
-    <div class="screen"><script type="text/javascript" src="index.js"></script></div>
-    
-</body>
+    <textarea name="" id="csvResult" cols="30" rows="10"></textarea>
+
+    <script src="index.js"></script>
+  </body>
 </html>
