@@ -1,24 +1,3 @@
-
-// const myForm = document.getElementById("myForm");
-// const csvFile = document.getElementById("csvFile");
-
-// myForm.addEventListener("submit", function (e) {
-//     e.preventDefault();
-//     const input = csvFile.files[0];
-//     const reader = new FileReader();
-
-//     reader.onload = function (e) {
-//         const text = e.target.result;
-//         const data = d3.csvParse(text);
-        
-//         document.write(JSON.stringify(data));
-//     };
-
-//     reader.readAsText(input);
-// });
-
-//from: https://byrayray.dev/posts/2022-09-16-convert-csv-to-javascript-array-objects
-
 const form = document.querySelector("#csvForm");
 const csvFileInput = document.querySelector("#csvInput");
 const textArea = document.querySelector("#csvResult");
@@ -31,17 +10,7 @@ form.addEventListener("submit", function (e) {
   reader.onload = function (e) {
     const csvArray = csvToArr(e.target.result, ",");
     console.log("textarea: ", textArea);
-    //textArea.value = JSON.stringify(csvArray, null, 4);
-    
-    // const deposits = [];
-    // for(let x of csvArray) {
-  
-    //   if(x.Type === "Deposit"  && (x.Description === "Room #1" || x.Description === "Room #2" || x.Description === "Room #3")) {
-    //       deposits.push(x);
-    //    console.log(new Date(x.Date).toDateString().substring(4, 7))   
-    //   }  
-  
-    // }
+
 
     const deposits = {};
     for(let x of csvArray) {
@@ -67,8 +36,6 @@ form.addEventListener("submit", function (e) {
         textArea.value +="\n";
     }
 
-
-    //textArea.value = JSON.stringify(deposits, null, 4);
   };
 
 
@@ -91,4 +58,4 @@ function csvToArr(stringVal, splitter) {
 }
 
 
-//Display text that lists room#s and the months that were paid
+
