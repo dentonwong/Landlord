@@ -1,6 +1,7 @@
 const form = document.querySelector("#csvForm");
 const csvFileInput = document.querySelector("#csvInput");
 const textArea = document.querySelector("#csvResult");
+const printOut = document.getElementById("test");
 
 form.addEventListener("submit", function (e) {
   e.preventDefault();
@@ -9,7 +10,7 @@ form.addEventListener("submit", function (e) {
   reader.readAsText(file);
   reader.onload = function (e) {
     const csvArray = csvToArr(e.target.result, ",");
-    console.log("textarea: ", textArea);
+   // console.log("textarea: ", textArea);
 
 
     const deposits = {};
@@ -29,12 +30,18 @@ form.addEventListener("submit", function (e) {
         return objEntries;
     }, {});
     textArea.value="";
+    printOut.innerHTML = "Second way to do this <br>";
 
     for(let room in sortedDeposits){
+        printOut.innerHTML += room + " rent was received for:";
+        deposits[room].forEach(ele => printOut.innerHTML += " " + ele);
+        printOut.innerHTML += "<br>";
+        
         textArea.value += room + " rent was received for:"
         deposits[room].forEach(ele => textArea.value += " " + ele);
         textArea.value +="\n";
     }
+    
 
   };
 
